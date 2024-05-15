@@ -48,8 +48,8 @@ pipeline {
                         withCredentials([file(credentialsId: 'k8s'),variable:'KUBECONFIG']){
                             sh'''
                                 export KUBECONFIG = $KUBECONFIG_FILE
-            					kubectl apply -f kubernetes/deployment.yml
-            					kubectl apply -f kubernetes/service.yml
+            					kubectl apply -f kubernetes/deployment.yaml
+            					kubectl apply -f kubernetes/service.yaml
             					kubectl get svc
             					kubectl all
             					kubectl set image deployment/app app=$DOCKER_IMAGE
